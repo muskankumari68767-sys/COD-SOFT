@@ -1,187 +1,70 @@
-/* RESET */
-* {
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
-body {
-    background: #020503;
+    background: black;
+    font-family: 'Poppins', sans-serif;
+    color: #00ff00;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: hidden;
 }
 
-/* Loading Screen */
-.loading-screen {
-    position: fixed;
-    inset: 0;
-    background: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #0f0;
-    font-size: 28px;
-    z-index: 9999;
-    animation: fadeOut 2s forwards;
-}
-
-@keyframes fadeOut {
-    0% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { opacity: 0; visibility: hidden; }
-}
-
-/* Logo */
-.calc-logo {
-    width: 70px;
-    position: absolute;
-    top: 20px;
-    left: calc(50% - 160px);
-    filter: drop-shadow(0 0 8px #0f0);
-}
-
-/* Theme toggle, Sound toggle, History toggle */
-#themeToggle, #openHistory, #soundToggle {
-    position: absolute;
-    top: 20px;
-    background: #111;
-    border: 2px solid #0f0;
-    padding: 10px 14px;
-    border-radius: 50%;
-    cursor: pointer;
-    color: #0f0;
-}
-
-#themeToggle { right: 20px; }
-#soundToggle { right: 80px; }
-#openHistory { left: 20px; }
-
-/* Calculator Glass Box */
-.glass {
-    background: rgba(255,255,255,0.06);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 15px;
-    box-shadow: 0 0 25px rgba(0,255,0,0.4);
+.calculator-container {
+    background: rgba(0, 255, 0, 0.15);
     padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px #00ff00;
+    text-align: center;
 }
 
-.container {
-    width: 360px;
+.title {
+    margin-bottom: 15px;
+    font-size: 26px;
+    text-shadow: 0 0 10px #00ff00;
 }
 
-/* Display */
-.display input {
+#display {
     width: 100%;
-    padding: 20px;
-    font-size: 32px;
+    padding: 12px;
+    font-size: 24px;
+    text-align: right;
     border: none;
     border-radius: 10px;
-    background: #000;
-    color: #0f0;
-    text-align: right;
-    box-shadow: inset 0 0 15px rgba(0,255,0,0.5);
+    margin-bottom: 15px;
+    background: black;
+    color: #00ff00;
+    box-shadow: 0 0 10px #00ff00 inset;
 }
 
-#historyPreview {
-    color: #4efc04;
-    font-size: 12px;
-    margin-bottom: 4px;
-    min-height: 16px;
-}
-
-/* Buttons Grid */
 .buttons {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    margin-top: 20px;
+    grid-template-columns: repeat(4, 70px);
+    gap: 10px;
+    justify-content: center;
 }
 
-.btn, .equal {
-    padding: 18px;
+.btn {
+    padding: 15px;
+    background: black;
+    color: #00ff00;
+    border: 1px solid #00ff00;
     border-radius: 10px;
-    border: none;
-    background: rgba(255,255,255,0.08);
-    color: white;
-    font-size: 20px;
+    font-size: 18px;
     cursor: pointer;
-    transition: 0.15s;
+    box-shadow: 0 0 8px #00ff00;
+    transition: 0.2s;
 }
 
-.btn:hover, .equal:hover {
-    background: rgba(0,255,0,0.3);
-    transform: translateY(-3px);
+.btn:hover {
+    background: #00ff00;
+    color: black;
+    box-shadow: 0 0 15px #00ff00;
 }
-
-.operator { color: #00ff6a; }
-.action { color: #ff4d4d; }
 
 .equal {
-    grid-column: span 4;
-    background: #00ff6a;
-    color: #000;
-    font-weight: bold;
+    grid-column: span 2;
+    background: #00ff00;
+    color: black;
+    box-shadow: 0 0 15px #00ff00;
 }
-
-/* Memory Buttons */
-.memory {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.memory button {
-    padding: 12px;
-    background: #003d18;
-    color: #fff;
-    border: 1px solid #0f0;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-/* Scientific Panel */
-.scientific-panel {
-    display: none;
-    margin-top: 15px;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-}
-
-.scientific-panel button {
-    padding: 15px;
-    background: #011f10;
-    border: 1px solid #0f0;
-    color: white;
-    border-radius: 10px;
-}
-
-/* History Panel */
-.history-panel {
-    position: absolute;
-    left: -350px;
-    top: 0;
-    width: 300px;
-    height: 100vh;
-    background: #020805;
-    border-right: 3px solid #0f0;
-    padding: 20px;
-    transition: 0.4s ease-in-out;
-    box-shadow: 0 0 20px #0f0;
-}
-
-.history-panel.open { left: 0; }
-
-#historyList {
-    margin-top: 20px;
-    max-height: 70vh;
-    overflow: auto;
-    color: #4efc04;
-}
-
-/* Scrollbar */
-#historyList::-webkit-scrollbar { width: 6px; }

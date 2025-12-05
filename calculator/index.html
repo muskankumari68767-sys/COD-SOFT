@@ -1,97 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cyber Glass Calculator</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Loading Screen -->
-    <div class="loading-screen">Loading Calculator...</div>
+    <div class="calculator-container">
+        <h1 class="title">⚡ Cyber Calculator</h1>
 
-    <!-- Logo -->
-    <img src="https://cdn-icons-png.flaticon.com/512/2721/2721290.png"
-         class="calc-logo" alt="Calculator Logo">
+        <input type="text" id="display" readonly>
 
-    <!-- Theme Toggle -->
-    <button id="themeToggle" title="Toggle Theme">🌓</button>
+        <div class="buttons">
+            <button class="btn" onclick="clearDisplay()">AC</button>
+            <button class="btn" onclick="deleteLast()">DEL</button>
+            <button class="btn" onclick="appendValue('%')">%</button>
+            <button class="btn" onclick="appendValue('/')">÷</button>
 
-    <!-- History Button -->
-    <button id="openHistory" title="Show History">📜</button>
+            <button class="btn" onclick="appendValue('7')">7</button>
+            <button class="btn" onclick="appendValue('8')">8</button>
+            <button class="btn" onclick="appendValue('9')">9</button>
+            <button class="btn" onclick="appendValue('*')">×</button>
 
-    <!-- Sound Toggle -->
-    <button id="soundToggle" title="Sound Toggle">🔊</button>
+            <button class="btn" onclick="appendValue('4')">4</button>`
+            <button class="btn" onclick="appendValue('5')">5</button>
+            <button class="btn" onclick="appendValue('6')">6</button>
+            <button class="btn" onclick="appendValue('-')">−</button>
 
-    <!-- History Panel -->
-    <div class="history-panel" id="historyPanel">
-        <h2>Calculation History</h2>
-        <ul id="historyList"></ul>
-        <button id="clearHistory">Clear History</button>
-    </div>
+            <button class="btn" onclick="appendValue('1')">1</button>
+            <button class="btn" onclick="appendValue('2')">2</button>
+            <button class="btn" onclick="appendValue('3')">3</button>
+            <button class="btn" onclick="appendValue('+')">+</button>
 
-    <div class="container">
-        <div class="calculator glass">
-
-            <div class="display">
-                <div id="historyPreview"></div>
-                <input type="text" id="display" disabled />
-            </div>
-
-            <div class="buttons">
-
-                <button class="btn action" onclick="clearAll()">AC</button>
-                <button class="btn action" onclick="deleteLast()">DEL</button>
-                <button class="btn action" onclick="insert('%')">%</button>
-                <button class="btn operator" onclick="insert('/')">÷</button>
-
-                <button class="btn" onclick="insert('7')">7</button>
-                <button class="btn" onclick="insert('8')">8</button>
-                <button class="btn" onclick="insert('9')">9</button>
-                <button class="btn operator" onclick="insert('*')">×</button>
-
-                <button class="btn" onclick="insert('4')">4</button>
-                <button class="btn" onclick="insert('5')">5</button>
-                <button class="btn" onclick="insert('6')">6</button>
-                <button class="btn operator" onclick="insert('-')">−</button>
-
-                <button class="btn" onclick="insert('1')">1</button>
-                <button class="btn" onclick="insert('2')">2</button>
-                <button class="btn" onclick="insert('3')">3</button>
-                <button class="btn operator" onclick="insert('+')">+</button>
-
-                <button class="btn" onclick="insert('0')">0</button>
-                <button class="btn" onclick="insert('.')">.</button>
-                <button class="btn special" onclick="squareRoot()">√</button>
-                <button class="btn special" onclick="square()">x²</button>
-
-                <!-- Scientific button -->
-                <button class="btn special sci-btn" onclick="openScientific()">Sci</button>
-
-                <button class="equal" onclick="calculate()">=</button>
-            </div>
-
-            <!-- Memory Buttons -->
-            <div class="memory">
-                <button onclick="memoryAdd()">M+</button>
-                <button onclick="memorySubtract()">M-</button>
-                <button onclick="memoryRecall()">MR</button>
-                <button onclick="memoryClear()">MC</button>
-            </div>
-
-            <!-- Scientific Panel -->
-            <div class="scientific-panel" id="scientificPanel">
-                <button onclick="scientific('sin')">sin</button>
-                <button onclick="scientific('cos')">cos</button>
-                <button onclick="scientific('tan')">tan</button>
-                <button onclick="scientific('log')">log</button>
-            </div>
-
+            <button class="btn" onclick="appendValue('0')">0</button>
+            <button class="btn" onclick="appendValue('.')">.</button>
+            <button class="btn equal" onclick="calculate()">=</button>
         </div>
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
